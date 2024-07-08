@@ -1,0 +1,12 @@
+create view occu as(
+select
+case when occupation = 'doctor' then name end as 'Doctor',
+case when occupation = 'professor' then name end as 'Professor',
+case when occupation = 'singer' then name end as 'Singer',
+case when occupation = 'Actor' then name end as 'Actor',
+     row_number() over (partition by occupation order by name) as cr
+from occupations);
+
+select max(Doctor),max(Professor),max(Singer),max(Actor)
+from occu
+group by cr;
