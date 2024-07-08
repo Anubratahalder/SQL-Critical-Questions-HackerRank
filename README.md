@@ -1,0 +1,1 @@
+# SQL-Critical-Questions-HackerRank
